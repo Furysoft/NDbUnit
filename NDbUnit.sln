@@ -1,23 +1,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.Core", "src\NDbUnit.Core\NDbUnit.Core.csproj", "{093E77F8-2F55-4823-B118-3D33F376F1A8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.Test", "test\NDbUnit.Test\NDbUnit.Test.csproj", "{37055A36-0019-4ECE-94C3-DA25D6BC5935}"
-	ProjectSection(ProjectDependencies) = postProject
-		{093E77F8-2F55-4823-B118-3D33F376F1A8} = {093E77F8-2F55-4823-B118-3D33F376F1A8}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.SqlClient", "src\NDbUnit.SqlClient\NDbUnit.SqlClient.csproj", "{89F1342D-0FF8-492E-BD74-175D1AAC9FE8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.MySql", "src\NDbUnit.MySql\NDbUnit.MySql.csproj", "{7C797012-5848-4AC5-A45E-776BCEAC52D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.OleDb", "src\NDbUnit.OleDb\NDbUnit.OleDb.csproj", "{1F40909A-ABDD-484C-AA52-14464A5B677A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.SqlLite", "src\NDbUnit.SqlLite\NDbUnit.SqlLite.csproj", "{E9B111D5-F5C0-417D-8F9B-B6BE0B1AC7F4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.SqlServerCe", "src\NDbUnit.SqlServerCe\NDbUnit.SqlServerCe.csproj", "{DA3F4EE1-CD15-4929-88F5-ABE52A7887D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.OracleClient", "src\NDbUnit.OracleClient\NDbUnit.OracleClient.csproj", "{0B83B341-1D0D-4284-B4E5-7DE97052F950}"
 EndProject
@@ -30,28 +19,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8AB255
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.Core", "src\NDbUnit.Core\NDbUnit.Core.csproj", "{D29314C0-3F87-4C02-A091-57ABF37F010D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.SqlServerCe", "src\NDbUnit.SqlServerCe\NDbUnit.SqlServerCe.csproj", "{7317E0CE-F3BB-410B-8D56-0F5EEF2E3C97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.SqlClient", "src\NDbUnit.SqlClient\NDbUnit.SqlClient.csproj", "{5060FAC4-F2A3-495B-BD6B-AA35349B667D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDbUnit.MySql", "src\NDbUnit.MySql\NDbUnit.MySql.csproj", "{7A11EAA5-EABB-437F-AA23-F14414EE734E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{093E77F8-2F55-4823-B118-3D33F376F1A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{093E77F8-2F55-4823-B118-3D33F376F1A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{093E77F8-2F55-4823-B118-3D33F376F1A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{093E77F8-2F55-4823-B118-3D33F376F1A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37055A36-0019-4ECE-94C3-DA25D6BC5935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37055A36-0019-4ECE-94C3-DA25D6BC5935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37055A36-0019-4ECE-94C3-DA25D6BC5935}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37055A36-0019-4ECE-94C3-DA25D6BC5935}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89F1342D-0FF8-492E-BD74-175D1AAC9FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89F1342D-0FF8-492E-BD74-175D1AAC9FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89F1342D-0FF8-492E-BD74-175D1AAC9FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89F1342D-0FF8-492E-BD74-175D1AAC9FE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C797012-5848-4AC5-A45E-776BCEAC52D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C797012-5848-4AC5-A45E-776BCEAC52D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C797012-5848-4AC5-A45E-776BCEAC52D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C797012-5848-4AC5-A45E-776BCEAC52D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F40909A-ABDD-484C-AA52-14464A5B677A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F40909A-ABDD-484C-AA52-14464A5B677A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F40909A-ABDD-484C-AA52-14464A5B677A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,10 +45,6 @@ Global
 		{E9B111D5-F5C0-417D-8F9B-B6BE0B1AC7F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9B111D5-F5C0-417D-8F9B-B6BE0B1AC7F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9B111D5-F5C0-417D-8F9B-B6BE0B1AC7F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA3F4EE1-CD15-4929-88F5-ABE52A7887D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA3F4EE1-CD15-4929-88F5-ABE52A7887D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA3F4EE1-CD15-4929-88F5-ABE52A7887D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA3F4EE1-CD15-4929-88F5-ABE52A7887D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B83B341-1D0D-4284-B4E5-7DE97052F950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0B83B341-1D0D-4284-B4E5-7DE97052F950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B83B341-1D0D-4284-B4E5-7DE97052F950}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -72,9 +53,28 @@ Global
 		{49A6A896-89E9-4293-8014-1AC1EFB20F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49A6A896-89E9-4293-8014-1AC1EFB20F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49A6A896-89E9-4293-8014-1AC1EFB20F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D29314C0-3F87-4C02-A091-57ABF37F010D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D29314C0-3F87-4C02-A091-57ABF37F010D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D29314C0-3F87-4C02-A091-57ABF37F010D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D29314C0-3F87-4C02-A091-57ABF37F010D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7317E0CE-F3BB-410B-8D56-0F5EEF2E3C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7317E0CE-F3BB-410B-8D56-0F5EEF2E3C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7317E0CE-F3BB-410B-8D56-0F5EEF2E3C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7317E0CE-F3BB-410B-8D56-0F5EEF2E3C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5060FAC4-F2A3-495B-BD6B-AA35349B667D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5060FAC4-F2A3-495B-BD6B-AA35349B667D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5060FAC4-F2A3-495B-BD6B-AA35349B667D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5060FAC4-F2A3-495B-BD6B-AA35349B667D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A11EAA5-EABB-437F-AA23-F14414EE734E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A11EAA5-EABB-437F-AA23-F14414EE734E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A11EAA5-EABB-437F-AA23-F14414EE734E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A11EAA5-EABB-437F-AA23-F14414EE734E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F23B86E-A88C-492C-97CF-CB226E8E149E}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

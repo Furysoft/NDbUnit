@@ -18,11 +18,10 @@
  *
  */
 
-using System.Data.Common;
-using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
-using System.Data;
 using System;
+using System.Data;
+using System.Data.Common;
+using MySql.Data.MySqlClient;
 
 namespace NDbUnit.Core.MySqlClient
 {
@@ -38,14 +37,30 @@ namespace NDbUnit.Core.MySqlClient
             get { return "]"; }
         }
 
+        protected override IDbCommand CreateDbCommand(string cmdText)
+        {
+            return new MySqlCommand(cmdText);
+        }
+
         protected override IDbDataAdapter CreateDbDataAdapter()
         {
             return new MySqlDataAdapter();
         }
 
-        protected override IDbCommand CreateDbCommand(string cmdText)
+        protected override void DisableTableConstraints(DataTable dataTable, IDbTransaction dbTransaction)
         {
-            return new MySqlCommand(cmdText);
+            MySqlCommand sqlCommand = (MySqlCommand)CreateDbCommand("SET foreign_key_checks = 0;");
+            sqlCommand.Connection = (MySqlConnection)dbTransaction.Connection;
+            sqlCommand.Transaction = (MySqlTransaction)dbTransaction;
+            sqlCommand.ExecuteNonQuery();
+        }
+
+        protected override void EnableTableConstraints(DataTable dataTable, IDbTransaction dbTransaction)
+        {
+            MySqlCommand sqlCommand = (MySqlCommand)CreateDbCommand("SET foreign_key_checks = 1;");
+            sqlCommand.Connection = (MySqlConnection)dbTransaction.Connection;
+            sqlCommand.Transaction = (MySqlTransaction)dbTransaction;
+            sqlCommand.ExecuteNonQuery();
         }
 
         protected override void OnInsertIdentity(DataTable dataTable, IDbCommand dbCommand, IDbTransaction dbTransaction)
@@ -62,7 +77,6 @@ namespace NDbUnit.Core.MySqlClient
                 sqlDataAdapter.InsertCommand.Transaction = sqlTransaction;
 
                 ((DbDataAdapter)sqlDataAdapter).Update(dataTable);
-
             }
             catch (Exception)
             {
@@ -70,25 +84,8 @@ namespace NDbUnit.Core.MySqlClient
             }
             finally
             {
-                EnableTableConstraints(dataTable, dbTransaction);                
+                EnableTableConstraints(dataTable, dbTransaction);
             }
-        }
-
-        protected override void EnableTableConstraints(DataTable dataTable, IDbTransaction dbTransaction)
-        {
-            MySqlCommand sqlCommand = (MySqlCommand)CreateDbCommand("SET foreign_key_checks = 1;");
-            sqlCommand.Connection = (MySqlConnection)dbTransaction.Connection;
-            sqlCommand.Transaction = (MySqlTransaction)dbTransaction;
-            sqlCommand.ExecuteNonQuery();
-        }
-
-        protected override void DisableTableConstraints(DataTable dataTable, IDbTransaction dbTransaction)
-        {
-            MySqlCommand sqlCommand = (MySqlCommand)CreateDbCommand("SET foreign_key_checks = 0;");
-            sqlCommand.Connection = (MySqlConnection)dbTransaction.Connection;
-            sqlCommand.Transaction = (MySqlTransaction)dbTransaction;
-            sqlCommand.ExecuteNonQuery();
-
         }
     }
 }

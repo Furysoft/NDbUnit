@@ -89,12 +89,6 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NDbUnit.Core\NDbUnit.Core.csproj">
-      <Project>{093E77F8-2F55-4823-B118-3D33F376F1A8}</Project>
-      <Name>NDbUnit.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

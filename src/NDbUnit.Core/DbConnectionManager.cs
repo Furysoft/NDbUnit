@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Data;
-using System.Data.Odbc;
 
 namespace NDbUnit.Core
 {
     public class DbConnectionManager<TDbConnection> where TDbConnection : class, IDbConnection, new()
     {
-        private TDbConnection _connection;
         private readonly string _connectionString;
-        
-        public bool HasExternallyManagedConnection { get; private set; }
+        private TDbConnection _connection;
 
         public DbConnectionManager(string connectionString)
         {
@@ -22,6 +19,8 @@ namespace NDbUnit.Core
             _connectionString = connection.ConnectionString;
             _connection = connection;
         }
+
+        public bool HasExternallyManagedConnection { get; private set; }
 
         public TDbConnection GetConnection(bool forceNewConnection = false)
         {
@@ -39,7 +38,7 @@ namespace NDbUnit.Core
             {
                 _connection = CreateConnection(_connectionString);
             }
-            
+
             return _connection;
         }
 

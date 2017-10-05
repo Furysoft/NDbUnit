@@ -18,10 +18,8 @@
  *
  */
 
-using System.Data.Common;
-using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
 using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace NDbUnit.Core.MySqlClient
 {
@@ -52,9 +50,27 @@ namespace NDbUnit.Core.MySqlClient
         {
         }
 
+        public override void ExecuteScripts()
+        {
+            var connection = ConnectionManager.GetConnection();
+
+            if (connection.State != ConnectionState.Open)
+                connection.Open();
+
+            foreach (string ddlText in ScriptManager.ScriptContents)
+            {
+                var script = new MySqlScript(connection, ddlText);
+                script.Execute();
+            }
+
+            if (connection.State != ConnectionState.Closed)
+                connection.Close();
+        }
+
         protected override IDbDataAdapter CreateDataAdapter(IDbCommand command)
         {
             return null;
+
             //return new MySqlDataAdapter((MySqlCommand) command);
         }
 
@@ -74,25 +90,6 @@ namespace NDbUnit.Core.MySqlClient
             selectCommand.Connection = dbConnection as MySqlConnection;
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
             adapter.Fill(dsToFill, tableName);
-        }
-
-        public override void ExecuteScripts()
-        {
-            var connection = ConnectionManager.GetConnection();
-
-            if (connection.State != ConnectionState.Open)
-                connection.Open();
-
-            foreach (string ddlText in ScriptManager.ScriptContents)
-            {
-                var script = new MySqlScript(connection, ddlText);
-                script.Execute();
-            }
-
-
-            if (connection.State != ConnectionState.Closed)
-                connection.Close();
-
         }
     }
 }
